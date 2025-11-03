@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ideas IA - IdeaGen Market</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Poppins',sans-serif;background:#eef6ff;margin:0;color:#0f172a;}
+    nav{background:#0f172a;padding:10px;text-align:center;}
+    nav a{color:white;text-decoration:none;margin:0 10px;font-weight:600;}
+    nav a:hover{text-decoration:underline;}
+    main{max-width:1000px;margin:40px auto;padding:20px;}
+    h1{text-align:center;color:#2563eb;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+    .card{background:white;padding:16px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.1);}
+    .card img{width:100%;border-radius:10px;}
+    .card h3{margin:10px 0 6px;color:#9333ea;}
+    .btn{display:inline-block;margin-top:8px;background:#2563eb;color:white;padding:8px 12px;border-radius:8px;text-decoration:none;}
+    .btn:hover{background:#1e3a8a;}
+    footer{text-align:center;margin:40px 0;color:#475569;}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Ideas</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <main>
+    <h1>💡 Galería de ideas creadas con IA</h1>
+    <div class="grid">
+      <div class="card">
+        <img src="img/idea1.jpg" alt="Idea IA 1">
+        <h3>Neuronix</h3>
+        <p>Una startup ficticia que convierte tus pensamientos en notas digitales usando IA.</p>
+        <a class="btn" href="#">Ver más</a>
+      </div>
+      <div class="card">
+        <img src="img/idea2.jpg" alt="Idea IA 2">
+        <h3>Sueña con IA</h3>
+        <p>Campaña de arte generativo para visualizar los sueños más abstractos.</p>
+        <a class="btn" href="#">Comprar idea</a>
+      </div>
+      <div class="card">
+        <img src="img/idea3.jpg" alt="Idea IA 3">
+        <h3>Futuro Líquido</h3>
+        <p>Concepto visual para branding fluido e inteligente, ideal para empresas tecnológicas.</p>
+        <a class="btn" href="#">Más info</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:30px;">
+      Enlaces relacionados: 
+      <a href="https://openai.com" target="_blank">OpenAI</a> · 
+      <a href="https://runwayml.com" target="_blank">RunwayML</a>
+    </p>
+  </main>
+
+  <footer>© <span id="y"></span> IdeaGen Market</footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
