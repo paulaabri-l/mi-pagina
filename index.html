@@ -179,4 +179,228 @@
      
 
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🧠 IdeaGen Market - Compra ideas creadas con IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #eef6ff;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #2563eb;
+      --secondary: #9333ea;
+      --card: #ffffff;
+      --shadow: 0 10px 28px rgba(2,6,23,.12);
+      --radius: 16px;
+    }
+
+    *{ box-sizing: border-box; margin:0; padding:0; }
+    body{
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #dbeafe 0%, var(--bg) 100%);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* ====== NAV ====== */
+    nav{
+      background: #0f172a;
+      box-shadow: 0 4px 18px rgba(15,23,42,.35);
+      position: sticky; top:0; z-index: 10;
+    }
+    .nav-inner{
+      max-width: 1100px; margin: 0 auto; padding: 12px 18px;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    }
+    .brand{ color:#fff; text-decoration:none; font-weight:700; font-size:1.3rem; }
+    .links a{
+      color:#e2e8f0; text-decoration:none; margin-left:12px; padding:6px 10px; border-radius:10px;
+    }
+    .links a:hover{ background: rgba(255,255,255,.08); color:#fff; }
+
+    /* ====== INTRO ====== */
+    .intro{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 18px;
+    }
+
+    .intro-text h1{
+      font-size: clamp(28px, 3vw + 8px, 46px);
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .intro-text span{
+      color: var(--secondary);
+    }
+
+    .intro-text p{
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .intro-image img{
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .3s ease;
+    }
+
+    .intro-image img:hover{
+      transform: scale(1.04);
+    }
+
+    .btn{
+      display:inline-block;
+      background: var(--primary);
+      color:#fff;
+      text-decoration:none;
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:600;
+      margin-right:10px;
+      box-shadow: 0 8px 22px rgba(37,99,235,.25);
+      transition: all .25s;
+    }
+
+    .btn:hover{ transform: scale(1.05); }
+    .btn.outline{
+      background: transparent;
+      color: var(--primary);
+      border:2px solid var(--primary);
+    }
+
+    /* ====== SECCIONES ====== */
+    section{ padding:60px 18px; max-width:1100px; margin:0 auto; }
+    h2.section-title{ text-align:center; font-size:2rem; color:var(--secondary); margin-bottom:30px; }
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+    .card{background:white;padding:16px;border-radius:14px;box-shadow:var(--shadow);}
+    .card img{width:100%;border-radius:10px;}
+    .card h3{margin:10px 0 6px;color:#2563eb;}
+    .card p{color:var(--muted);}
+    .card .btn{background:var(--secondary);}
+    .card .btn:hover{background:#7e22ce;}
+
+    iframe{width:100%;height:500px;border:none;border-radius:12px;box-shadow:var(--shadow);}
+
+    footer{text-align:center;color:var(--muted);padding: 40px 18px;}
+
+    @media (max-width: 820px){
+      .intro{
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .intro-image{
+        order: -1;
+      }
+      .intro-image img{
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="#inicio">🧠 IdeaGen Market</a>
+      <div class="links">
+        <a href="#inicio">Inicio</a>
+        <a href="#ideas">Ideas</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- INTRO -->
+  <section id="inicio" class="intro">
+    <div class="intro-text">
+      <h1>Bienvenido a <span>IdeaGen Market</span></h1>
+      <p>
+        En nuestro mercado podrás <strong>comprar y descubrir ideas creadas por inteligencia artificial</strong>.  
+        Proyectos, conceptos y diseños únicos que combinan creatividad humana y tecnología.
+      </p>
+      <div class="btns">
+        <a href="#ideas" class="btn">Explorar ideas</a>
+        <a href="#contacto" class="btn outline">Contáctanos</a>
+      </div>
+    </div>
+
+    <div class="intro-image">
+      <img src="img/ai-idea.jpg" alt="Imagen generada por IA sobre creatividad">
+    </div>
+  </section>
+
+  <!-- IDEAS -->
+  <section id="ideas">
+    <h2 class="section-title">💡 Galería de ideas generadas por IA</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="img/idea1.jpg" alt="Idea IA 1">
+        <h3>Neuronix</h3>
+        <p>Una startup ficticia que convierte tus pensamientos en notas digitales usando IA.</p>
+        <a class="btn" href="#">Ver más</a>
+      </div>
+      <div class="card">
+        <img src="img/idea2.jpg" alt="Idea IA 2">
+        <h3>Sueña con IA</h3>
+        <p>Campaña de arte generativo que visualiza los sueños más abstractos.</p>
+        <a class="btn" href="#">Comprar idea</a>
+      </div>
+      <div class="card">
+        <img src="img/idea3.jpg" alt="Idea IA 3">
+        <h3>Futuro Líquido</h3>
+        <p>Concepto visual para branding fluido e inteligente, ideal para empresas tecnológicas.</p>
+        <a class="btn" href="#">Más info</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:40px;">
+      Enlaces relacionados: 
+      <a href="https://openai.com" target="_blank">OpenAI</a> · 
+      <a href="https://runwayml.com" target="_blank">RunwayML</a>
+    </p>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2 class="section-title">📬 Contáctanos</h2>
+    <p style="text-align:center;max-width:700px;margin:0 auto 20px;color:#475569;">
+      ¿Tienes una idea que te gustaría compartir o colaborar con nosotros?  
+      Rellena este formulario y te responderemos pronto.
+    </p>
+
+    <!-- Sustituye el src por tu enlace de Google Forms -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEjemploTuFormulario/viewform?embedded=true">
+      Cargando…
+    </iframe>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="y"></span> IdeaGen Market — Hecho con HTML + CSS · 
+    <a href="https://openai.com" target="_blank">OpenAI</a>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
 
