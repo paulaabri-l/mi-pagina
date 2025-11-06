@@ -6,24 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-dark: #0f172a;
-      --bg-mid: #1e3a8a;
-      --bg-light: #dbeafe;
-      --text-light: #f8fafc;
-      --text-muted: #94a3b8;
-      --primary: #2563eb;
-      --card-bg: #ffffff;
-      --radius: 18px;
-      --shadow: 0 12px 28px rgba(15,23,42,0.2);
-    }
-
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 40%, var(--bg-light) 100%);
-      color: var(--text-light);
+      background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 40%, #dbeafe 100%);
+      color: #f8fafc;
       margin: 0;
-      padding: 0;
     }
 
     nav {
@@ -31,7 +18,6 @@
       box-shadow: 0 4px 18px rgba(15,23,42,.35);
       position: sticky;
       top: 0;
-      z-index: 10;
     }
 
     .nav-inner {
@@ -43,75 +29,64 @@
       align-items: center;
     }
 
-    .brand {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
     .links a {
       color: #e2e8f0;
       text-decoration: none;
       margin-left: 12px;
       padding: 6px 10px;
       border-radius: 10px;
-      transition: all 0.3s;
     }
 
     .links a:hover {
       background: rgba(255,255,255,.08);
-      color: #fff;
     }
 
     h1 {
       text-align: center;
-      margin: 50px 0 40px;
-      font-size: 2.4rem;
-      color: #bfdbfe;
+      margin: 40px 0;
+      font-size: 2.2rem;
+      color: #93c5fd;
       letter-spacing: 0.5px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      gap: 28px;
       max-width: 1100px;
       margin: 0 auto 80px;
       padding: 0 18px;
     }
 
     .card {
-      background: var(--card-bg);
+      background: #ffffff;
       color: #1e293b;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(2,6,23,.15);
       padding: 22px;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform .3s ease;
     }
 
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 14px 30px rgba(37,99,235,0.25);
     }
 
     .card img {
       width: 100%;
       border-radius: 14px;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
-      background: #e2e8f0;
     }
 
     .card h3 {
-      color: var(--primary);
-      margin: 14px 0 8px;
+      color: #2563eb;
+      margin: 16px 0 8px;
       font-size: 1.3rem;
     }
 
     .card p {
-      color: var(--text-muted);
+      color: #475569;
       font-size: 0.95rem;
       line-height: 1.5;
     }
@@ -119,33 +94,32 @@
     .btn {
       display: inline-block;
       margin-top: 14px;
-      background: var(--primary);
+      background: #2563eb;
       color: #fff;
       text-decoration: none;
       padding: 10px 18px;
-      border-radius: 12px;
-      font-weight: 600;
+      border-radius: 10px;
       transition: all 0.25s ease;
     }
 
     .btn:hover {
-      background: #1d4ed8;
+      background: #1e40af;
       transform: scale(1.05);
     }
 
     footer {
       text-align: center;
-      padding: 40px 0;
+      padding: 30px 0;
       color: #cbd5e1;
-      background: var(--bg-dark);
-      font-size: 0.95rem;
+      background: #0f172a;
     }
   </style>
 </head>
+
 <body>
   <nav>
     <div class="nav-inner">
-      <a class="brand" href="index.html">IdeaGen Market</a>
+      <a class="brand" href="index.html" style="color:#fff;text-decoration:none;font-weight:700;">IdeaGen Market</a>
       <div class="links">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Ideas</a>
@@ -154,33 +128,35 @@
     </div>
   </nav>
 
-  <h1>Ideas generadas por Inteligencia Artificial</h1>
+  <h1>Innovaciones físicas creadas con inteligencia artificial</h1>
 
   <div class="grid">
+
     <div class="card">
       <img src="img/echowear.jpg" alt="EchoWear - moda inteligente adaptable">
       <h3>EchoWear</h3>
-      <p>Ropa inteligente que se adapta a tu entorno y estado emocional. EchoWear utiliza sensores de temperatura, ritmo cardíaco y luz ambiental para modificar su textura y color, ofreciendo confort y estilo personalizados gracias a la inteligencia artificial.</p>
-      <a class="btn" href="#">Explorar producto</a>
+      <p>Una chaqueta inteligente que regula automáticamente su temperatura y color según el entorno y tu estado corporal. Diseñada con IA para ofrecer comodidad, sostenibilidad y estilo futurista.</p>
+      <a class="btn" href="#">Comprar</a>
     </div>
 
     <div class="card">
       <img src="img/homegenie.jpg" alt="HomeGenie - hogar inteligente con IA">
       <h3>HomeGenie</h3>
-      <p>Un asistente doméstico que aprende tus hábitos y transforma tu casa en un espacio vivo. HomeGenie optimiza energía, organiza tareas y crea ambientes automáticos según tu estado de ánimo y tus rutinas diarias.</p>
-      <a class="btn" href="#">Ver detalles</a>
+      <p>Un asistente doméstico físico que aprende tus rutinas: ajusta la iluminación, la temperatura y la música según tus hábitos. Su diseño elegante lo convierte en una pieza central de cualquier hogar moderno.</p>
+      <a class="btn" href="#">Descubrir</a>
     </div>
 
     <div class="card">
-      <img src="img/soundmind.jpg" alt="SoundMind - bienestar y música IA">
+      <img src="img/soundmind.jpg" alt="SoundMind - bienestar emocional con IA">
       <h3>SoundMind</h3>
-      <p>Una IA emocional que analiza tu voz y expresiones para generar música personalizada. SoundMind crea melodías que acompañan tu estado mental, ayudando a mejorar la concentración, el descanso y el bienestar emocional.</p>
-      <a class="btn" href="#">Descubrir más</a>
+      <p>Un dispositivo portátil que analiza tus emociones mediante IA y crea paisajes sonoros personalizados para mejorar tu estado de ánimo, concentración o descanso. Tecnología emocional hecha realidad.</p>
+      <a class="btn" href="#">Explorar</a>
     </div>
+
   </div>
 
   <footer>
-    © <span id="y"></span> IdeaGen Market — Innovación creada con IA
+    © <span id="y"></span> IdeaGen Market — Innovación tangible impulsada por IA
   </footer>
 
   <script>
