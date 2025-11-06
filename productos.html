@@ -2,29 +2,150 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>💡 Ideas | IdeaGen Market</title>
+  <title>Ideas | IdeaGen Market</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body{font-family:'Poppins',sans-serif;background:linear-gradient(180deg,#0f172a 0%,#1e3a8a 40%,#dbeafe 100%);color:#f8fafc;margin:0;}
-    nav{background:rgba(15,23,42,0.9);box-shadow:0 4px 18px rgba(15,23,42,.35);position:sticky;top:0;}
-    .nav-inner{max-width:1100px;margin:0 auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;}
-    .links a{color:#e2e8f0;text-decoration:none;margin-left:12px;padding:6px 10px;border-radius:10px;}
-    .links a:hover{background:rgba(255,255,255,.08);}
-    h1{text-align:center;margin:40px 0;font-size:2rem;color:#93c5fd;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto 80px;padding:0 18px;}
-    .card{background:#fff;color:#1e293b;border-radius:16px;box-shadow:0 10px 28px rgba(2,6,23,.15);padding:18px;text-align:center;}
-    .card img{width:100%;border-radius:12px;}
-    .card h3{color:#2563eb;margin:10px 0;}
-    .card p{color:#475569;}
-    .btn{display:inline-block;margin-top:10px;background:#2563eb;color:#fff;text-decoration:none;padding:8px 14px;border-radius:10px;}
-    footer{text-align:center;padding:30px 0;color:#cbd5e1;background:#0f172a;}
+    :root {
+      --bg-dark: #0f172a;
+      --bg-mid: #1e3a8a;
+      --bg-light: #dbeafe;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #2563eb;
+      --card-bg: #ffffff;
+      --radius: 18px;
+      --shadow: 0 12px 28px rgba(15,23,42,0.2);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 40%, var(--bg-light) 100%);
+      color: var(--text-light);
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: rgba(15,23,42,0.9);
+      box-shadow: 0 4px 18px rgba(15,23,42,.35);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      margin-left: 12px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      transition: all 0.3s;
+    }
+
+    .links a:hover {
+      background: rgba(255,255,255,.08);
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 50px 0 40px;
+      font-size: 2.4rem;
+      color: #bfdbfe;
+      letter-spacing: 0.5px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 18px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      color: #1e293b;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(37,99,235,0.25);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 14px;
+      height: 200px;
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin: 14px 0 8px;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 14px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: all 0.25s ease;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #cbd5e1;
+      background: var(--bg-dark);
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-inner">
-      <a class="brand" href="index.html" style="color:#fff;text-decoration:none;font-weight:700;">🧠 IdeaGen Market</a>
+      <a class="brand" href="index.html">IdeaGen Market</a>
       <div class="links">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Ideas</a>
@@ -33,51 +154,37 @@
     </div>
   </nav>
 
-  <h1>💡 Ideas generadas por IA</h1>
+  <h1>Ideas generadas por Inteligencia Artificial</h1>
+
   <div class="grid">
     <div class="card">
-      <img src="img/idea1.jpg" alt="Idea 1">
-      <h3>Neuronix</h3>
-      <p>Convierte pensamientos en notas digitales usando inteligencia artificial.</p>
-      <a class="btn" href="#">Comprar idea</a>
-    </div>
-    <div class="card">
-      <img src="img/idea2.jpg" alt="Idea 2">
-      <h3>Sueña con IA</h3>
-      <p>Visualiza sueños y emociones mediante arte generativo.</p>
-      <a class="btn" href="#">Ver más</a>
-    </div>
-    <div class="card">
-      <img src="img/idea3.jpg" alt="Idea 3">
-      <h3>Futuro Líquido</h3>
-      <p>Branding adaptable y fluido, inspirado por redes neuronales.</p>
-      <a class="btn" href="#">Descubrir</a>
+      <img src="img/idea4.jpg" alt="EchoWear - ropa inteligente">
+      <h3>EchoWear</h3>
+      <p>Una línea de ropa inteligente que adapta su temperatura según tu entorno y ritmo cardíaco, impulsada por IA y nanotecnología textil.</p>
+      <a class="btn" href="#">Explorar producto</a>
     </div>
 
-    <!-- NUEVAS IDEAS -->
     <div class="card">
-      <img src="img/idea4.jpg" alt="Idea 4">
-      <h3>EchoWear</h3>
-      <p>Ropa inteligente que se adapta al clima y al estado de ánimo del usuario gracias a sensores IA.</p>
-      <a class="btn" href="#">Explorar</a>
+      <img src="img/idea5.jpg" alt="MindFrame - marco digital interactivo">
+      <h3>MindFrame</h3>
+      <p>Un marco digital que crea arte personalizado en tiempo real según tu estado de ánimo, detectado por sensores de expresión facial.</p>
+      <a class="btn" href="#">Ver detalles</a>
     </div>
+
     <div class="card">
-      <img src="img/idea5.jpg" alt="Idea 5">
-      <h3>HomeGenie</h3>
-      <p>Un asistente doméstico que aprende tus rutinas y organiza tu hogar para máxima eficiencia energética.</p>
-      <a class="btn" href="#">Descubrir</a>
-    </div>
-    <div class="card">
-      <img src="img/idea6.jpg" alt="Idea 6">
-      <h3>SoundMind</h3>
-      <p>Un sistema de sonido emocional que ajusta la música según tus niveles de concentración y bienestar.</p>
-      <a class="btn" href="#">Ver más</a>
+      <img src="img/idea6.jpg" alt="LumoDesk - escritorio inteligente">
+      <h3>LumoDesk</h3>
+      <p>Un escritorio inteligente con iluminación adaptativa y proyección holográfica para mejorar la concentración y el bienestar digital.</p>
+      <a class="btn" href="#">Descubrir más</a>
     </div>
   </div>
 
   <footer>
-    © <span id="y"></span> IdeaGen Market — Innovación en cada idea
+    © <span id="y"></span> IdeaGen Market — Innovación creada con IA
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
