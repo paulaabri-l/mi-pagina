@@ -10,7 +10,6 @@
     :root {
       --bg-dark: #0a0f1f;
       --bg-mid: #0f172a;
-      --bg-light: #1e3a8a;
       --primary: #3b82f6;
       --accent: #60a5fa;
       --text-light: #e2e8f0;
@@ -20,11 +19,37 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 100%);
+      background: radial-gradient(circle at top, var(--bg-mid), var(--bg-dark) 90%);
       color: var(--text-light);
       line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ===== FONDO ANIMADO ===== */
+    .animated-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .line {
+      position: absolute;
+      width: 2px;
+      height: 100vh;
+      background: linear-gradient(to bottom, transparent, rgba(96,165,250,0.4), transparent);
+      animation: moveLines 6s linear infinite;
+    }
+
+    @keyframes moveLines {
+      0% { transform: translateY(-100%); opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { transform: translateY(100%); opacity: 0.5; }
     }
 
     /* ===== NAV ===== */
@@ -142,7 +167,7 @@
       margin-top: 80px;
     }
 
-    /* ===== ANIMATION ===== */
+    /* ===== ANIMACIONES ===== */
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(25px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -164,6 +189,15 @@
 </head>
 
 <body>
+  <!-- ===== Fondo Animado ===== -->
+  <div class="animated-bg">
+    <div class="line" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="line" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="line" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="line" style="left: 70%; animation-delay: 3s;"></div>
+    <div class="line" style="left: 90%; animation-delay: 4s;"></div>
+  </div>
+
   <!-- ===== NAV ===== -->
   <nav>
     <div class="nav-inner">
@@ -194,7 +228,8 @@
     © <span id="y"></span> IdeaGen Market — Inspirando el futuro con IA
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
