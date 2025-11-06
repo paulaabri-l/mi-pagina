@@ -197,5 +197,67 @@
   </script>
 </body>
 </html>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&display=swap" rel="stylesheet">
+.hero h1{
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(34px, 3.5vw + 12px, 56px);
+  color: #3b82f6; /* Azul claro, sin brillo */
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.hero p{
+  font-family: 'Poppins', sans-serif;
+  color: #1e3a8a;
+  font-size: 1.15rem;
+  margin-bottom: 22px;
+}
+<section class="hero">
+  <div>
+    <h1>Inspírate con ideas creadas por inteligencia artificial</h1>
+    <p>Explora un mercado donde la creatividad humana y la inteligencia artificial se unen para inspirar tus próximas <strong>ideas</strong>.</p>
+    <div class="btns">
+      <a class="btn" href="productos.html">Explorar ideas</a>
+      <a class="btn outline" href="contacto.html">Contáctanos</a>
+    </div>
+  </div>
+  <img src="img/ai-idea.jpg" alt="Idea generada por IA">
+</section>
+/* ====== Animaciones suaves para la intro ====== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1, .hero p {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero h1 {
+  animation-delay: 0.2s;
+}
+
+.hero p {
+  animation-delay: 0.5s;
+}
+<section class="hero">
+  <div>
+    <h1>Inspírate con ideas creadas por inteligencia artificial</h1>
+    <p>Explora un mercado donde la creatividad humana y la inteligencia artificial se unen para inspirar tus próximas <strong>ideas</strong>.</p>
+    <div class="btns">
+      <a class="btn" href="productos.html">Explorar ideas</a>
+      <a class="btn outline" href="contacto.html">Contáctanos</a>
+    </div>
+  </div>
+  <img src="img/ai-idea.jpg" alt="Idea generada por IA">
+</section>
+
 
 
