@@ -2,50 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Productos | IdeaGen Market</title>
+  <title>Ideas Futuristas | IdeaGen Market</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
-    /* ===== Fondo animado con ondas metálicas ===== */
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top right, #0a192f, #020617 80%);
       color: #e2e8f0;
-      background: radial-gradient(circle at center, #0f172a 0%, #1e3a8a 70%, #0a0f1f 100%);
       overflow-x: hidden;
       position: relative;
     }
 
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 200%; height: 200%;
-      background: repeating-radial-gradient(
-        circle at center,
-        rgba(37,99,235,0.15) 0,
-        rgba(37,99,235,0.15) 5px,
-        transparent 10px,
-        transparent 40px
-      );
-      animation: wave 10s linear infinite;
-      transform: translate(-25%, -25%) scale(1.2);
-      z-index: 0;
+    /* Fondo animado */
+    canvas#bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at top right, #0a192f, #020617 80%);
     }
 
-    @keyframes wave {
-      from { transform: translate(-25%, -25%) rotate(0deg) scale(1.2); }
-      to { transform: translate(-25%, -25%) rotate(360deg) scale(1.2); }
-    }
-
-    /* ===== Contenido principal ===== */
+    /* NAVBAR */
     nav {
-      background: rgba(15, 23, 42, 0.9);
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.6);
-      position: sticky; top: 0;
+      background: rgba(2, 6, 23, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      position: sticky;
+      top: 0;
       z-index: 10;
     }
-
     .nav-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -54,124 +46,121 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .brand {
       color: #60a5fa;
-      text-decoration: none;
       font-weight: 700;
       font-size: 1.3rem;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 1px;
     }
-
     .links a {
       color: #e2e8f0;
       text-decoration: none;
-      margin-left: 12px;
-      padding: 6px 10px;
+      margin-left: 14px;
+      padding: 6px 12px;
       border-radius: 10px;
-      transition: background 0.3s;
+      transition: all .3s;
     }
-
     .links a:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
+      color: #93c5fd;
     }
 
+    /* TÍTULO */
     h1 {
       text-align: center;
+      margin: 60px 0 30px;
+      font-size: 2.4rem;
       font-family: 'Orbitron', sans-serif;
-      margin: 60px 0 40px;
-      font-size: 2.2rem;
-      color: #93c5fd;
-      text-shadow: 0 0 8px rgba(147, 197, 253, 0.3);
-      position: relative;
-      z-index: 2;
+      color: #a5b4fc;
+      text-shadow: 0 0 15px rgba(147,197,253,0.4);
+      letter-spacing: 1.5px;
     }
 
+    /* GRID DE PRODUCTOS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      gap: 28px;
       max-width: 1100px;
       margin: 0 auto 80px;
       padding: 0 18px;
-      position: relative;
-      z-index: 2;
     }
 
     .card {
-      background: linear-gradient(180deg, #1e293b, #111827);
-      color: #f8fafc;
-      border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(2, 6, 23, 0.4);
-      padding: 20px;
+      background: linear-gradient(180deg, rgba(15,23,42,0.95), rgba(30,41,59,0.97));
+      border: 1px solid rgba(96,165,250,0.3);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(30,58,138,0.35);
+      padding: 22px;
       text-align: center;
-      border: 1px solid rgba(147, 197, 253, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform .3s, box-shadow .3s;
     }
-
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 0 40px rgba(59,130,246,0.4);
     }
 
     .card img {
       width: 100%;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      opacity: 0.95;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(147,197,253,0.2);
     }
 
     .card h3 {
-      color: #60a5fa;
       font-family: 'Orbitron', sans-serif;
-      margin: 10px 0;
-      font-size: 1.3rem;
+      color: #60a5fa;
+      margin: 8px 0;
     }
 
     .card p {
       color: #cbd5e1;
       font-size: 0.95rem;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .price {
-      font-size: 1.1rem;
-      color: #a5b4fc;
       font-weight: 600;
-      margin-bottom: 10px;
+      color: #a5b4fc;
+      margin: 6px 0 12px;
     }
 
     .btn {
       display: inline-block;
-      background: #2563eb;
+      background: linear-gradient(90deg,#2563eb,#3b82f6);
       color: #fff;
       text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 10px;
+      padding: 10px 18px;
+      border-radius: 12px;
       font-weight: 600;
-      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
-      transition: all 0.25s;
+      box-shadow: 0 0 15px rgba(37,99,235,0.4);
+      transition: all .3s;
     }
-
     .btn:hover {
-      background: #1d4ed8;
       transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(96,165,250,0.6);
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 30px 0;
-      color: #cbd5e1;
-      background: rgba(15, 23, 42, 0.95);
-      position: relative;
-      z-index: 2;
+      color: #94a3b8;
+      background: rgba(2,6,23,0.95);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(59,130,246,0.3);
     }
   </style>
 </head>
-
 <body>
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <a class="brand" href="index.html">🧠 IdeaGen Market</a>
+      <a class="brand" href="index.html">IdeaGen Market</a>
       <div class="links">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Ideas</a>
@@ -180,41 +169,82 @@
     </div>
   </nav>
 
-  <h1>Ejemplos de productos diseñados con IA por nuestros usuarios</h1>
+  <!-- TÍTULO -->
+  <h1>Ejemplos de productos físicos creados con inteligencia artificial</h1>
 
+  <!-- PRODUCTOS -->
   <div class="grid">
     <div class="card">
       <img src="img/echowear.jpg" alt="EchoWear - Moda inteligente">
       <h3>EchoWear</h3>
-      <p>Chaqueta inteligente que regula la temperatura según tu entorno y actividad física. Con IA que aprende tus preferencias y ajusta el confort automáticamente.</p>
-      <div class="price">129 €</div>
+      <p>Una prenda tecnológica que se adapta al entorno y a tu temperatura corporal, fusionando moda y funcionalidad. Perfecta para quienes buscan confort y estilo futurista.</p>
+      <p class="price">129,99 €</p>
       <a class="btn" href="#">Comprar</a>
     </div>
 
     <div class="card">
-      <img src="img/homegenie.jpg" alt="HomeGenie - Asistente para el hogar">
+      <img src="img/homegenie.jpg" alt="HomeGenie - Hogar inteligente">
       <h3>HomeGenie</h3>
-      <p>Asistente doméstico que gestiona la iluminación, la energía y la música con precisión. Su IA crea ambientes personalizados según tu estado de ánimo.</p>
-      <div class="price">139 €</div>
+      <p>Un dispositivo doméstico inteligente capaz de aprender tus rutinas, ajustar la iluminación, temperatura y música según tu estado de ánimo. El asistente del futuro, hoy.</p>
+      <p class="price">139,00 €</p>
       <a class="btn" href="#">Comprar</a>
     </div>
 
     <div class="card">
-      <img src="img/soundmind.jpg" alt="SoundMind - Auriculares de bienestar">
+      <img src="img/soundmind.jpg" alt="SoundMind - IA emocional musical">
       <h3>SoundMind</h3>
-      <p>Auriculares inteligentes con IA emocional que ajustan la música y el sonido para mejorar tu concentración, relajación o estado de ánimo.</p>
-      <div class="price">119 €</div>
+      <p>Un sistema de audio impulsado por IA que analiza tus emociones y genera listas personalizadas para mejorar tu bienestar emocional y mental. Una experiencia única de sonido.</p>
+      <p class="price">119,90 €</p>
       <a class="btn" href="#">Comprar</a>
     </div>
   </div>
 
   <footer>
-    © <span id="y"></span> IdeaGen Market — Tecnología inspirada por la creatividad humana
+    © <span id="y"></span> IdeaGen Market — Innovación impulsada por IA
   </footer>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Fondo animado
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    let w, h, particles;
+
+    function init() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      particles = [];
+      for (let i = 0; i < 60; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          radius: Math.random() * 2 + 1,
+          dx: (Math.random() - 0.5) * 0.6,
+          dy: (Math.random() - 0.5) * 0.6
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "#1e3a8a";
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(96,165,250,0.6)";
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("resize", init);
+    init();
+    draw();
   </script>
 </body>
 </html>
-
