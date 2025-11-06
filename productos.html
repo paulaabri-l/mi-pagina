@@ -9,7 +9,7 @@
     /* === ESTILOS GENERALES === */
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #0a0f1f 0%, #1b2a49 50%, #2f4f7a 100%);
+      background: radial-gradient(circle at top, #0a0f1f 0%, #1b2a49 45%, #2f4f7a 100%);
       color: #e2e8f0;
       margin: 0;
       overflow-x: hidden;
@@ -17,10 +17,11 @@
 
     nav {
       background: rgba(10, 20, 40, 0.95);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
       position: sticky;
       top: 0;
       z-index: 10;
+      backdrop-filter: blur(8px);
     }
 
     .nav-inner {
@@ -33,20 +34,20 @@
     }
 
     .brand {
-      color: #fff;
+      color: #f8fafc;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.3rem;
-      letter-spacing: 0.5px;
+      font-size: 1.4rem;
+      letter-spacing: 0.6px;
     }
 
     .links a {
-      color: #e2e8f0;
+      color: #cbd5e1;
       text-decoration: none;
       margin-left: 14px;
       padding: 6px 12px;
       border-radius: 10px;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
 
     .links a:hover {
@@ -57,23 +58,33 @@
     /* === TITULO === */
     h1 {
       text-align: center;
-      margin: 60px 0 40px;
-      font-size: 2.2rem;
-      color: #cfe1ff;
+      margin: 70px 20px 50px;
+      font-size: 2.4rem;
+      color: #dbeafe;
       font-weight: 600;
-      text-shadow: 0 0 12px rgba(180, 220, 255, 0.3);
+      letter-spacing: 0.4px;
+      text-shadow: 0 0 20px rgba(147, 197, 253, 0.25);
+      animation: fadeInTitle 1.2s ease-in-out;
     }
 
     h1 span {
       color: #60a5fa;
       font-weight: 700;
+      background: linear-gradient(90deg, #93c5fd, #60a5fa, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes fadeInTitle {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     /* === GRID DE PRODUCTOS === */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
+      gap: 34px;
       max-width: 1100px;
       margin: 0 auto 100px;
       padding: 0 18px;
@@ -81,18 +92,32 @@
 
     .card {
       position: relative;
-      background: linear-gradient(180deg, #ffffff 0%, #dbeafe 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
       color: #1e293b;
-      border-radius: 18px;
-      box-shadow: 0 10px 35px rgba(2, 6, 23, 0.25);
-      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.3);
+      padding: 22px;
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.4s, box-shadow 0.4s;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
     }
 
+    /* Animación de aparición metálica */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px) scale(0.98); filter: brightness(0.8); }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: brightness(1); }
+    }
+
+    /* Retraso progresivo */
+    .card:nth-child(1) { animation-delay: 0.4s; }
+    .card:nth-child(2) { animation-delay: 0.8s; }
+    .card:nth-child(3) { animation-delay: 1.2s; }
+
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 45px rgba(37, 99, 235, 0.4);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 45px rgba(59, 130, 246, 0.4);
     }
 
     .card img {
@@ -117,13 +142,13 @@
 
     .card h3 {
       color: #1e40af;
-      margin: 14px 0 8px;
-      font-size: 1.3rem;
+      margin: 16px 0 10px;
+      font-size: 1.35rem;
       font-weight: 600;
     }
 
     .price {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 12px;
       background: linear-gradient(90deg, #93c5fd, #60a5fa, #93c5fd);
@@ -135,7 +160,7 @@
     .card p {
       color: #334155;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .btn {
@@ -148,7 +173,7 @@
       border-radius: 10px;
       font-weight: 600;
       box-shadow: 0 6px 18px rgba(79, 70, 229, 0.4);
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
@@ -164,6 +189,7 @@
       background: #0a0f1f;
       font-size: 0.95rem;
       letter-spacing: 0.5px;
+      border-top: 1px solid rgba(96, 165, 250, 0.15);
     }
 
     footer a {
@@ -191,7 +217,7 @@
   </nav>
 
   <!-- TITULO -->
-  <h1>Ejemplos de <span>productos creados por personas con nuestra IA</span> — ¡y disponibles hoy!</h1>
+  <h1>Algunos <span>productos creados por personas</span> con la ayuda de nuestra inteligencia artificial</h1>
 
   <!-- GRID DE PRODUCTOS -->
   <div class="grid">
@@ -231,5 +257,4 @@
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
 
