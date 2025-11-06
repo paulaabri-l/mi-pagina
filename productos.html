@@ -2,53 +2,85 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ideas | IdeaGen Market</title>
+  <title>Ejemplos de productos generados por IA | IdeaGen Market</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
+    /* ===== Estilo general ===== */
+    :root {
+      --azul-oscuro: #0a0f1f;
+      --azul-metalico: #1e3a8a;
+      --azul-brillante: #60a5fa;
+      --gris-suave: #e2e8f0;
+      --blanco: #ffffff;
+      --sombra: 0 10px 30px rgba(0, 0, 0, 0.25);
+      --radio: 18px;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 40%, #dbeafe 100%);
-      color: #f8fafc;
+      background: linear-gradient(180deg, var(--azul-oscuro) 0%, #132a55 40%, #1e3a8a 100%);
+      color: var(--gris-suave);
       margin: 0;
+      padding: 0;
     }
 
+    /* ===== Navegación ===== */
     nav {
-      background: rgba(15,23,42,0.9);
-      box-shadow: 0 4px 18px rgba(15,23,42,.35);
+      background: rgba(10, 15, 31, 0.95);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
       position: sticky;
       top: 0;
+      z-index: 10;
     }
-
     .nav-inner {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 12px 18px;
+      padding: 14px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
-    .links a {
-      color: #e2e8f0;
+    .brand {
+      color: var(--blanco);
       text-decoration: none;
-      margin-left: 12px;
-      padding: 6px 10px;
-      border-radius: 10px;
-    }
-
-    .links a:hover {
-      background: rgba(255,255,255,.08);
-    }
-
-    h1 {
-      text-align: center;
-      margin: 40px 0;
-      font-size: 2.2rem;
-      color: #93c5fd;
+      font-weight: 700;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.4rem;
       letter-spacing: 0.5px;
     }
+    .links a {
+      color: var(--gris-suave);
+      text-decoration: none;
+      margin-left: 14px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .links a:hover {
+      background: rgba(96, 165, 250, 0.1);
+      color: var(--azul-brillante);
+    }
 
+    /* ===== Encabezado ===== */
+    h1 {
+      text-align: center;
+      margin: 50px 0 20px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2.4rem;
+      color: var(--azul-brillante);
+      text-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
+    }
+    p.subtitulo {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+      color: #dbeafe;
+    }
+
+    /* ===== Tarjetas de productos ===== */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -57,69 +89,71 @@
       margin: 0 auto 80px;
       padding: 0 18px;
     }
-
     .card {
-      background: #ffffff;
+      background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
       color: #1e293b;
-      border-radius: 18px;
-      box-shadow: 0 10px 28px rgba(2,6,23,.15);
-      padding: 22px;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      padding: 20px;
       text-align: center;
-      transition: transform .3s ease;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .card:hover {
       transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(96, 165, 250, 0.3);
     }
-
     .card img {
       width: 100%;
       border-radius: 14px;
-      height: 220px;
-      object-fit: cover;
+      margin-bottom: 15px;
     }
-
     .card h3 {
-      color: #2563eb;
-      margin: 16px 0 8px;
-      font-size: 1.3rem;
+      color: var(--azul-metalico);
+      margin: 10px 0;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.5rem;
     }
-
     .card p {
-      color: #475569;
+      color: #334155;
       font-size: 0.95rem;
-      line-height: 1.5;
+      margin-bottom: 16px;
+      min-height: 65px;
     }
-
     .btn {
       display: inline-block;
-      margin-top: 14px;
-      background: #2563eb;
+      background: var(--azul-metalico);
       color: #fff;
       text-decoration: none;
-      padding: 10px 18px;
+      padding: 10px 16px;
       border-radius: 10px;
-      transition: all 0.25s ease;
+      font-weight: 600;
+      transition: 0.3s;
     }
-
     .btn:hover {
-      background: #1e40af;
-      transform: scale(1.05);
+      background: var(--azul-brillante);
     }
 
+    /* ===== Pie de página ===== */
     footer {
       text-align: center;
       padding: 30px 0;
-      color: #cbd5e1;
-      background: #0f172a;
+      color: #94a3b8;
+      background: #0a0f1f;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      h1 { font-size: 1.8rem; }
+      p.subtitulo { font-size: 1rem; }
     }
   </style>
 </head>
 
 <body>
+  <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <a class="brand" href="index.html" style="color:#fff;text-decoration:none;font-weight:700;">IdeaGen Market</a>
+      <a class="brand" href="index.html">🧠 IdeaGen Market</a>
       <div class="links">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Ideas</a>
@@ -128,33 +162,35 @@
     </div>
   </nav>
 
-  <h1>Innovaciones físicas creadas con inteligencia artificial</h1>
+  <!-- HERO / TÍTULO -->
+  <h1>Ejemplos de productos creados con IA</h1>
+  <p class="subtitulo">Descubre algunas de las creaciones más innovadoras que las personas han desarrollado con la ayuda de nuestra inteligencia artificial — productos únicos disponibles en IdeaGen Market.</p>
 
+  <!-- PRODUCTOS -->
   <div class="grid">
-
     <div class="card">
-      <img src="img/echowear.jpg" alt="EchoWear - moda inteligente adaptable">
+      <img src="img/echowear.jpg" alt="EchoWear - chaqueta inteligente">
       <h3>EchoWear</h3>
-      <p>Una chaqueta inteligente que regula automáticamente su temperatura y color según el entorno y tu estado corporal. Diseñada con IA para ofrecer comodidad, sostenibilidad y estilo futurista.</p>
-      <a class="btn" href="#">Comprar</a>
+      <p>Una chaqueta inteligente que regula automáticamente su temperatura y color según el entorno y el estado corporal del usuario.</p>
+      <a class="btn" href="#">Comprar producto</a>
     </div>
 
     <div class="card">
-      <img src="img/homegenie.jpg" alt="HomeGenie - hogar inteligente con IA">
+      <img src="img/homegenie.jpg" alt="HomeGenie - sistema de hogar inteligente">
       <h3>HomeGenie</h3>
-      <p>Un asistente doméstico físico que aprende tus rutinas: ajusta la iluminación, la temperatura y la música según tus hábitos. Su diseño elegante lo convierte en una pieza central de cualquier hogar moderno.</p>
-      <a class="btn" href="#">Descubrir</a>
+      <p>Un dispositivo de hogar inteligente que aprende tus rutinas y gestiona luz, temperatura y energía, optimizando tu confort y ahorro.</p>
+      <a class="btn" href="#">Comprar producto</a>
     </div>
 
     <div class="card">
-      <img src="img/soundmind.jpg" alt="SoundMind - bienestar emocional con IA">
+      <img src="img/soundmind.jpg" alt="SoundMind - auriculares con IA emocional">
       <h3>SoundMind</h3>
-      <p>Un dispositivo portátil que analiza tus emociones mediante IA y crea paisajes sonoros personalizados para mejorar tu estado de ánimo, concentración o descanso. Tecnología emocional hecha realidad.</p>
-      <a class="btn" href="#">Explorar</a>
+      <p>Auriculares con IA que detectan tus emociones y adaptan la música y el sonido ambiente para mejorar tu concentración o relajación.</p>
+      <a class="btn" href="#">Comprar producto</a>
     </div>
-
   </div>
 
+  <!-- FOOTER -->
   <footer>
     © <span id="y"></span> IdeaGen Market — Innovación tangible impulsada por IA
   </footer>
