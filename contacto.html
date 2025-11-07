@@ -13,16 +13,23 @@
       color: #e0f7ff;
       line-height:1.6;
       min-height:100vh;
+      position:relative;
     }
 
-    /* Navbar minimalista con borde luminoso sutil */
+    @keyframes glow {
+      0% { box-shadow: 0 0 6px rgba(165,216,255,0.2); border-color: rgba(165,216,255,0.25); }
+      50% { box-shadow: 0 0 12px rgba(165,216,255,0.35); border-color: rgba(165,216,255,0.4); }
+      100% { box-shadow: 0 0 6px rgba(165,216,255,0.2); border-color: rgba(165,216,255,0.25); }
+    }
+
     nav {
       background: rgba(0,0,50,0.75);
       backdrop-filter: blur(8px);
       position: sticky;
       top:0;
       z-index: 1000;
-      border-bottom: 1px solid rgba(165,216,255,0.3);
+      border-bottom: 1px solid rgba(165,216,255,0.25);
+      animation: glow 3s infinite alternate;
     }
     .nav-inner {
       max-width:1100px;
@@ -50,7 +57,6 @@
       text-shadow: 0 0 5px rgba(165,216,255,0.6);
     }
 
-    /* Título elegante y minimalista */
     h1 {
       text-align:center;
       font-size:2.5rem;
@@ -65,7 +71,6 @@
       font-size:1.1rem;
     }
 
-    /* Formulario minimalista futurista */
     .form-container {
       max-width:700px;
       margin:0 auto 60px;
@@ -73,12 +78,10 @@
       border-radius:14px;
       padding:20px;
       border:1px solid rgba(165,216,255,0.25);
-      box-shadow: 0 0 20px rgba(165,216,255,0.1);
-      transition: box-shadow 0.4s, border 0.4s;
-    }
-    .form-container:hover {
-      box-shadow: 0 0 40px rgba(165,216,255,0.25);
-      border:1px solid rgba(165,216,255,0.4);
+      box-shadow: 0 0 10px rgba(165,216,255,0.15);
+      animation: glow 4s infinite alternate;
+      position: relative;
+      overflow: hidden;
     }
     iframe {
       width:100%;
@@ -87,7 +90,15 @@
       border-radius:12px;
     }
 
-    /* Redes sociales minimalistas */
+    #circuit {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+    }
+
     .redes {
       text-align:center;
       margin-bottom:60px;
@@ -109,7 +120,6 @@
       text-shadow: 0 0 5px rgba(165,216,255,0.5);
     }
 
-    /* Footer elegante minimalista */
     footer {
       text-align:center;
       padding:30px 20px;
@@ -118,7 +128,6 @@
       border-top: 1px solid rgba(165,216,255,0.25);
       font-weight:500;
     }
-
   </style>
 </head>
 <body>
@@ -140,6 +149,7 @@
   </p>
 
   <div class="form-container">
+    <canvas id="circuit"></canvas>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEjemploTuFormulario/viewform?embedded=true">Cargando…</iframe>
   </div>
 
@@ -156,6 +166,75 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    const canvas = document.getElementById('circuit');
+    const ctx = canvas.getContext('2d');
+    const container = document.querySelector('.form-container');
+
+    function resizeCanvas(){
+      canvas.width = container.offsetWidth;
+      canvas.height = container.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const nodes = [];
+    const nodeCount = 18;
+
+    for(let i=0;i<nodeCount;i++){
+      nodes.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        vx: (Math.random()-0.5)*0.3,
+        vy: (Math.random()-0.5)*0.3
+      });
+    }
+
+    function animateCircuit(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+
+      nodes.forEach(n=>{
+        n.x += n.vx;
+        n.y += n.vy;
+        if(n.x<0 || n.x>canvas.width) n.vx*=-1;
+        if(n.y<0 || n.y>canvas.height) n.vy*=-1;
+        ctx.beginPath();
+        ctx.arc(n.x,n.y,1.5,0,Math.PI*2);
+        ctx.fillStyle='rgba(165,216,255,0.7)';
+        ctx.fill();
+      });
+
+      for(let i=0;i<nodes.length;i++){
+        for(let j=i+1;j<nodes.length;j++){
+          let dx = nodes[i].x - nodes[j].x;
+          let dy = nodes[i].y - nodes[j].y;
+          let dist = Math.sqrt(dx*dx+dy*dy);
+          if(dist<80){
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x,nodes[i].y);
+            ctx.lineTo(nodes[j].x,nodes[j].y);
+            ctx.strokeStyle = 'rgba(165,216,255,'+(0.25*(1-dist/80))+')';
+            ctx.lineWidth=0.8;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Extender líneas hacia los bordes del formulario
+      nodes.forEach(n=>{
+        if(Math.random()<0.02){
+          ctx.beginPath();
+          ctx.moveTo(n.x,n.y);
+          ctx.lineTo(Math.random()*canvas.width, Math.random()*canvas.height);
+          ctx.strokeStyle = 'rgba(165,216,255,0.1)';
+          ctx.lineWidth=0.5;
+          ctx.stroke();
+        }
+      });
+
+      requestAnimationFrame(animateCircuit);
+    }
+    animateCircuit();
   </script>
 </body>
 </html>
