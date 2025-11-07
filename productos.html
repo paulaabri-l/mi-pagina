@@ -99,7 +99,6 @@
       box-shadow: 0 0 40px rgba(59,130,246,0.4);
     }
 
-    /* Etiquetas destacadas */
     .badge {
       position: absolute;
       top: 16px;
@@ -114,11 +113,20 @@
       box-shadow: 0 0 12px rgba(59,130,246,0.6);
     }
 
-    .card img {
+    /* Espacio reservado para imagen */
+    .placeholder {
       width: 100%;
+      height: 200px;
+      border: 2px dashed rgba(96,165,250,0.5);
       border-radius: 14px;
       margin-bottom: 14px;
-      border: 1px solid rgba(147,197,253,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(147,197,253,0.7);
+      font-size: 1rem;
+      font-style: italic;
+      background: rgba(30,41,59,0.5);
     }
 
     .card h3 {
@@ -165,6 +173,7 @@
     }
   </style>
 </head>
+
 <body>
   <canvas id="bgCanvas"></canvas>
 
@@ -184,27 +193,27 @@
   <div class="grid">
     <div class="card">
       <span class="badge">Top en ventas</span>
-      <img src="img/echowear.jpg" alt="EchoWear - Moda inteligente">
+      <div class="placeholder">Imagen del producto</div>
       <h3>EchoWear</h3>
-      <p>Una prenda tecnológica que se adapta al entorno y a tu temperatura corporal, fusionando moda y funcionalidad. Perfecta para quienes buscan confort y estilo futurista.</p>
+      <p>Una prenda tecnológica que se adapta al entorno y a tu temperatura corporal, fusionando moda y funcionalidad.</p>
       <p class="price">129,99 €</p>
       <a class="btn" href="#">Comprar</a>
     </div>
 
     <div class="card">
       <span class="badge">Más innovador</span>
-      <img src="img/homegenie.jpg" alt="HomeGenie - Hogar inteligente">
+      <div class="placeholder">Imagen del producto</div>
       <h3>HomeGenie</h3>
-      <p>Un dispositivo doméstico inteligente capaz de aprender tus rutinas, ajustar la iluminación, temperatura y música según tu estado de ánimo. El asistente del futuro, hoy.</p>
+      <p>Un dispositivo doméstico inteligente capaz de aprender tus rutinas y ajustar la iluminación, temperatura y música.</p>
       <p class="price">139,00 €</p>
       <a class="btn" href="#">Comprar</a>
     </div>
 
     <div class="card">
       <span class="badge">Tendencia 2025</span>
-      <img src="img/soundmind.jpg" alt="SoundMind - Auriculares con IA emocional">
+      <div class="placeholder">Imagen del producto</div>
       <h3>SoundMind</h3>
-      <p>Unos auriculares inteligentes impulsados por inteligencia artificial que analizan tu estado emocional en tiempo real y ajustan la música, el sonido ambiental y la cancelación de ruido para mejorar tu bienestar y concentración.</p>
+      <p>Auriculares con IA que analizan tu estado emocional en tiempo real y ajustan el sonido para mejorar tu bienestar.</p>
       <p class="price">144,50 €</p>
       <a class="btn" href="#">Comprar</a>
     </div>
@@ -257,4 +266,3 @@
   </script>
 </body>
 </html>
-
