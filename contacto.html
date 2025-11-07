@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>📬 Contacto | IdeaGen Market</title>
+  <title>Contacto | IdeaGen Market</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -16,7 +16,7 @@
       height:100%;
     }
 
-    /* Partículas flotantes estilo futurista */
+    /* Canvas de partículas con circuitos */
     #particles{
       position:fixed;
       top:0;
@@ -26,7 +26,7 @@
       z-index:-1;
     }
 
-    /* Navbar futurista */
+    /* Navbar elegante */
     nav{
       background:rgba(0,0,40,0.85);
       backdrop-filter:blur(12px);
@@ -49,7 +49,7 @@
       font-weight:700;
       font-size:1.7rem;
       letter-spacing:1px;
-      text-shadow: 0 0 8px #00f0ff, 0 0 15px #0ff, 0 0 20px #00f;
+      text-shadow:0 0 8px #00f0ff,0 0 15px #0ff;
     }
     .links a{
       color:#e0f7ff;
@@ -74,18 +74,18 @@
     .links a:hover::after{width:100%;}
     .links a:hover{color:#00f0ff;text-shadow:0 0 5px #0ff,0 0 10px #0ff;}
 
-    /* Título futurista animado */
+    /* Título elegante con glow */
     h1{
       text-align:center;
       margin:60px 0 20px;
       font-size:3rem;
       color:#00f0ff;
-      text-shadow:0 0 10px #0ff,0 0 20px #00f0ff,0 0 30px #00f0ff;
+      text-shadow:0 0 10px #0ff,0 0 20px #00f0ff;
       animation: glow 2s ease-in-out infinite alternate;
     }
     @keyframes glow{
-      from { text-shadow:0 0 10px #0ff,0 0 20px #00f0ff,0 0 30px #00f0ff; }
-      to { text-shadow:0 0 20px #0ff,0 0 40px #00f0ff,0 0 60px #00f0ff; }
+      from { text-shadow:0 0 10px #0ff,0 0 20px #00f0ff; }
+      to { text-shadow:0 0 20px #0ff,0 0 40px #00f0ff; }
     }
 
     p{
@@ -93,6 +93,9 @@
       text-align:center;
       margin-bottom:40px;
       font-size:1.1rem;
+      max-width:700px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
     /* Formulario futurista */
@@ -119,7 +122,7 @@
       border-radius:16px;
     }
 
-    /* Redes sociales futuristas */
+    /* Redes sociales elegantes */
     .redes{text-align:center;margin-bottom:60px;}
     .redes p{
       margin-bottom:15px;
@@ -146,9 +149,9 @@
       transition:0.4s;
     }
     .redes a:hover::after{width:100%;}
-    .redes a:hover{color:#00f0ff;text-shadow:0 0 10px #0ff,0 0 20px #0ff;}
+    .redes a:hover{color:#00f0ff;text-shadow:0 0 10px #0ff,0 0 20px #00f0ff;}
 
-    /* Footer futurista */
+    /* Footer elegante */
     footer{
       text-align:center;
       padding:40px 20px;
@@ -163,12 +166,12 @@
 </head>
 <body>
 
-  <!-- Partículas animadas -->
+  <!-- Canvas de partículas y circuitos -->
   <canvas id="particles"></canvas>
 
   <nav>
     <div class="nav-inner">
-      <a class="brand" href="index.html">🧠 IdeaGen Market</a>
+      <a class="brand" href="index.html">IdeaGen Market</a>
       <div class="links">
         <a href="index.html">Inicio</a>
         <a href="productos.html">Ideas</a>
@@ -177,9 +180,9 @@
     </div>
   </nav>
 
-  <h1>📬 Contáctanos</h1>
+  <h1>Contáctanos</h1>
   <p>
-    ¿Tienes una idea tecnológica o quieres colaborar con nosotros? Completa el formulario y nos pondremos en contacto muy pronto.
+    ¿Tienes una idea tecnológica o deseas colaborar con nosotros? Completa el formulario y nos pondremos en contacto contigo a la brevedad.
   </p>
 
   <div class="form-container">
@@ -198,17 +201,15 @@
   </footer>
 
   <script>
-    // Año actual
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Partículas estilo futurista
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let w = canvas.width = window.innerWidth;
     let h = canvas.height = window.innerHeight;
 
     const particles = [];
-    const particleCount = 80;
+    const particleCount = 100;
 
     class Particle {
       constructor(){
@@ -239,12 +240,33 @@
 
     function animate(){
       ctx.clearRect(0,0,w,h);
+
+      // Dibujar partículas
       for(let p of particles){
         p.update();
         p.draw();
       }
+
+      // Dibujar líneas tipo circuito
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          let dx = particles[i].x - particles[j].x;
+          let dy = particles[i].y - particles[j].y;
+          let dist = Math.sqrt(dx*dx + dy*dy);
+          if(dist < 120){
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(0,255,255,'+(1-dist/120)*0.4+')';
+            ctx.lineWidth = 1;
+            ctx.moveTo(particles[i].x,particles[i].y);
+            ctx.lineTo(particles[j].x,particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
       requestAnimationFrame(animate);
     }
+
     animate();
 
     window.addEventListener('resize',()=>{
@@ -254,4 +276,3 @@
   </script>
 </body>
 </html>
-
