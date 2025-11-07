@@ -15,13 +15,14 @@
       min-height:100vh;
     }
 
-    /* Navbar minimalista */
+    /* Navbar minimalista con borde luminoso sutil */
     nav {
-      background: rgba(0,0,50,0.85);
+      background: rgba(0,0,50,0.75);
       backdrop-filter: blur(8px);
       position: sticky;
       top:0;
       z-index: 1000;
+      border-bottom: 1px solid rgba(165,216,255,0.3);
     }
     .nav-inner {
       max-width:1100px;
@@ -42,11 +43,14 @@
       text-decoration:none;
       margin-left:20px;
       font-weight:500;
-      transition: color 0.3s;
+      transition: color 0.3s, text-shadow 0.3s;
     }
-    .links a:hover { color:#a5d8ff; }
+    .links a:hover { 
+      color:#a5d8ff;
+      text-shadow: 0 0 5px rgba(165,216,255,0.6);
+    }
 
-    /* Título elegante */
+    /* Título elegante y minimalista */
     h1 {
       text-align:center;
       font-size:2.5rem;
@@ -61,14 +65,20 @@
       font-size:1.1rem;
     }
 
-    /* Formulario minimalista */
+    /* Formulario minimalista futurista */
     .form-container {
       max-width:700px;
       margin:0 auto 60px;
       background: rgba(255,255,255,0.05);
-      border-radius:12px;
+      border-radius:14px;
       padding:20px;
-      border:1px solid rgba(255,255,255,0.15);
+      border:1px solid rgba(165,216,255,0.25);
+      box-shadow: 0 0 20px rgba(165,216,255,0.1);
+      transition: box-shadow 0.4s, border 0.4s;
+    }
+    .form-container:hover {
+      box-shadow: 0 0 40px rgba(165,216,255,0.25);
+      border:1px solid rgba(165,216,255,0.4);
     }
     iframe {
       width:100%;
@@ -77,7 +87,7 @@
       border-radius:12px;
     }
 
-    /* Redes sociales */
+    /* Redes sociales minimalistas */
     .redes {
       text-align:center;
       margin-bottom:60px;
@@ -92,18 +102,23 @@
       margin:0 12px;
       text-decoration:none;
       font-weight:500;
-      transition: color 0.3s;
+      transition: color 0.3s, text-shadow 0.3s;
     }
-    .redes a:hover { color:#a5d8ff; }
+    .redes a:hover { 
+      color:#a5d8ff; 
+      text-shadow: 0 0 5px rgba(165,216,255,0.5);
+    }
 
-    /* Footer minimalista */
+    /* Footer elegante minimalista */
     footer {
       text-align:center;
       padding:30px 20px;
       color:#a5d8ff;
-      background: rgba(0,0,50,0.85);
+      background: rgba(0,0,50,0.75);
+      border-top: 1px solid rgba(165,216,255,0.25);
       font-weight:500;
     }
+
   </style>
 </head>
 <body>
