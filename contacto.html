@@ -66,18 +66,18 @@
     font-size:1.2rem;
   }
 
-  /* Redes sociales elegantes con animación */
-  .redes {
+  /* Redes sociales y enlaces elegantes */
+  .redes, .enlaces {
     text-align:center;
     margin-bottom:20px;
   }
-  .redes p {
+  .redes p, .enlaces p {
     margin-bottom:15px;
     font-weight:600;
     color:#a5d8ff;
     letter-spacing:0.5px;
   }
-  .redes a {
+  .redes a, .enlaces a {
     color:#e0f7ff;
     margin:0 12px;
     text-decoration:none;
@@ -87,7 +87,7 @@
     align-items:center;
     gap:6px;
   }
-  .redes a:hover { 
+  .redes a:hover, .enlaces a:hover { 
     color:#a5d8ff;
     text-shadow: 0 0 8px rgba(165,216,255,0.8);
     transform: translateY(-4px);
@@ -105,8 +105,26 @@
     text-align:center;
     color:#a5d8ff;
     font-weight:600;
-    margin-bottom:60px;
+    margin-bottom:40px;
     font-size:1.1rem;
+  }
+
+  /* Contenedor del formulario con estilo futurista */
+  .form-container {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(15,23,42,0.9);
+    box-shadow: 0 0 25px rgba(59,130,246,0.35);
+  }
+
+  /* Formulario embebido */
+  iframe {
+    width: 100%;
+    min-height: 600px;
+    border-radius: 14px;
+    border: none;
   }
 
   footer {
@@ -142,9 +160,22 @@
   <a href="https://www.tiktok.com/@openai" target="_blank"><i class="fab fa-tiktok"></i> TikTok — @OpenAI</a>
 </div>
 
+<!-- Enlaces adicionales -->
+<div class="enlaces">
+  <p>Otros enlaces de interés:</p>
+  <a href="https://openai.com/research/" target="_blank">Blog de Investigación</a>
+  <a href="https://platform.openai.com/docs/" target="_blank">Documentación OpenAI</a>
+</div>
+
 <!-- Correo debajo de las redes -->
 <div class="correo">
   📧 contacto@ideagenmarket.com
+</div>
+
+<!-- Formulario embebido de Google Forms -->
+<div class="form-container">
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe-example-form/viewform?embedded=true" 
+          frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
 </div>
 
 <footer>
